@@ -8,14 +8,14 @@ document.addEventListener("DOMContentLoaded", () => {
         .then((sortedSawatchData) => addDataToTable(sortedSawatchData))
   });
 
-fetchApiInformation = (api) => {
+fetchApiInformation = api => {
     return fetch(api)
         .then(response => response.json())
         .then(result => [result.data][0])
         .catch(error => console.error(error))
 }
 
-sortSawatchData = (sawatchData) => {
+sortSawatchData = sawatchData => {
     sortedSawatchData = sawatchData.sort((a, b) => {
         if(a.vehicle_model > b.vehicle_model) {
             return 1;
@@ -28,7 +28,7 @@ sortSawatchData = (sawatchData) => {
     return sortedSawatchData
 }
 
-addDataToTable = (sortedSawatchData) => {
+addDataToTable = sortedSawatchData => {
     sortedSawatchData.map((carInfo) => {
         createRow(carInfo, attributes)  
     })
@@ -42,7 +42,7 @@ createRow = (carInfo, attributes) => {
 }
 
 createDataCells = (carInfo, row, attributes) => {
-    attributes.forEach((attribute) => {
+    attributes.map((attribute) => {
         newCell = document.createElement("td")
         newCell.innerHTML = carInfo[attribute]
         row.appendChild(newCell)
