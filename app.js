@@ -1,6 +1,6 @@
-const swtTable  =  document.getElementById("swt-table")
-const attributes = ["vehicle_year", "vehicle_model", "make", "displacement", "cylinders", "class"]
 const api = "https://api.sawatchlabs.com/models/13/2017"
+const attributes = ["vehicle_year", "vehicle_model", "make", "displacement", "cylinders", "class"]
+const swtTable  =  document.getElementById("swt-table")
 
 document.addEventListener("DOMContentLoaded", () => {
     fetchApiInformation(api)
@@ -9,21 +9,21 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 fetchApiInformation = (api) => {
-    return fetch(api) 
-            .then(response => response.json())
-            .then(result => [result.data][0])
-            .catch(error => console.error(error))
+    return fetch(api)
+        .then(response => response.json())
+        .then(result => [result.data][0])
+        .catch(error => console.error(error))
 }
 
 sortSawatchData = (sawatchData) => {
     sortedSawatchData = sawatchData.sort((a, b) => {
-                            if(a.vehicle_model > b.vehicle_model) {
-                                return 1;
-                            } else if (a.vehicle_model < b.vehicle_model) {
-                                return -1;
-                            } else {
-                                return 0
-                            }
+        if(a.vehicle_model > b.vehicle_model) {
+            return 1;
+        } else if (a.vehicle_model < b.vehicle_model) {
+            return -1;
+        } else {
+            return 0
+        }
     })
     return sortedSawatchData
 }
@@ -35,10 +35,10 @@ addDataToTable = (sortedSawatchData) => {
 }
 
 createRow = (carInfo, attributes) => {
-    tableRow = document.createElement("tr")
-    tableRow.className = carInfo.id
-    swtTable.appendChild(tableRow)
-    createDataCells(carInfo, tableRow, attributes)
+    newRow = document.createElement("tr")
+    newRow.className = carInfo.id
+    swtTable.appendChild(newRow)
+    createDataCells(carInfo, newRow, attributes)
 }
 
 createDataCells = (carInfo, row, attributes) => {
@@ -48,6 +48,3 @@ createDataCells = (carInfo, row, attributes) => {
         row.appendChild(newCell)
     })
 }
-
-
-
