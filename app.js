@@ -41,10 +41,10 @@ createRow = (carInfo, attributes) => {
     createDataCells(carInfo, newRow, attributes)
 }
 
-createDataCells = (carInfo, row, attributes) => {
+createDataCells = (carInfo, newRow, attributes) => {
     attributes.map((attribute) => {
         newCell = document.createElement("td")
         newCell.innerHTML = carInfo[attribute]
-        row.appendChild(newCell)
+        newRow.appendChild(newCell)
     })
 }
