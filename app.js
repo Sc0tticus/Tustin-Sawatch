@@ -1,5 +1,5 @@
 const api = "https://api.sawatchlabs.com/models/13/2017"
-const attributes = ["vehicle_year", "vehicle_model", "make", "displacement", "cylinders", "class"]
+const attributes = ["vehicle_year", "make", "vehicle_model", "displacement", "cylinders", "class"]
 const swtTable  =  document.getElementById("swt-table")
 
 document.addEventListener("DOMContentLoaded", () => {
