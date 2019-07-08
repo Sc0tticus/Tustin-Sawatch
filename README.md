@@ -1,4 +1,4 @@
-## Sawatch Labs: Tustin Front End Technical Challenge
+## Sawatch Labs: Tustin - Front End Technical Challenge: ES6
 
 Using ES6 JavaScript I wrote a series of functions which displays the fetched api information.  Once the data is fetched it 
 is sorted by the Vehicle Model.  The car data is rendered on the page by appending the elements to the DOM.    
